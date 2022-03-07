@@ -1,0 +1,43 @@
+.underline-wrapper {
+  .u {
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    width: max-content;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 10px;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: 0.5s $ease-out 0.5s;
+      z-index: -1;
+      width: 100%;
+      height: 15px;
+      background: $gradient;
+
+      @include media-breakpoint-up(lg) { height: 25px; }
+    }
+  }
+
+  &.big {
+    .u {
+      &::after {
+        height: 23px;
+
+        @include media-breakpoint-up(lg) {
+          bottom: 20px;
+          height: 32px;
+        }
+      }
+    }
+  }
+
+  &.visible {
+    .u::after {
+      transform: scaleX(1);
+    }
+  }
+}

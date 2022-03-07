@@ -1,0 +1,41 @@
+.b-cn {
+  position: relative;
+
+  &__s {
+    padding: 50px 40px;
+    border: solid 1px $grey;
+    border-radius: 15px;
+    background-color: $white;
+
+    @include media-breakpoint-up(lg) { padding: 60px 0; }
+  }
+
+  &__w {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  &__st {
+    margin-top: 20px;
+    letter-spacing: 0.04em;
+    font-style: italic;
+
+    @include f30;
+
+    + .b { margin-top: 20px; }
+  }
+
+  &__tx {
+    margin-top: 50px;
+
+    @include media-breakpoint-up(lg) { margin: 0; }
+  }
+
+  .b {
+    margin: 50px auto 0;
+
+    @include media-breakpoint-up(lg) { margin: 50px 0 0; }
+  }
+}

@@ -1,0 +1,193 @@
+// There's 2 predefined classes that you can use on form fields to build your form
+// By default a field is displayed fullwidth with a label
+// .half - Add this class to make a field half width
+// .no-label - Add this class to hide the label of a field (only the placeholder is shown)
+
+$errorColor: red;
+
+.gform_confirmation_wrapper {
+  .gform_confirmation_message {
+    font-size: 18px;
+    font-weight: normal;
+  }
+}
+
+form {
+  .validation_error {
+    border: 0;
+    color: $errorColor;
+    font-size: 18px;
+    font-weight: normal;
+  }
+
+  .gform_body {
+    .gform_fields {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0 -10px;
+      padding: 0;
+
+      .gfield {
+        position: relative;
+        width: 100%;
+        list-style-type: none;
+        margin: 0 0 20px;
+        padding: 0 10px;
+
+        @include media-breakpoint-up(md) { margin: 0 0 30px; }
+
+        label {
+          width: 100%;
+          line-height: 19px;
+          font-size: 16px;
+          font-weight: normal;
+        }
+
+        .ginput_container {
+          margin: 0;
+
+          input,
+          textarea,
+          select {
+            width: 100%;
+            padding: 15px 20px;
+            border: solid 1px #e7e7e7;
+            border-radius: 5px;
+            background-color: $light;
+            font-family: Arial, Helvetica, sans-serif;
+            outline: none;
+            appearance: none;
+
+            @include f15;
+
+            &::placeholder {
+              font-family: Arial, Helvetica, sans-serif;
+              color: rgba($black, 0.5);
+
+              @include f15;
+            }
+          }
+
+          select { color: rgba($black, 0.5); }
+
+          &_select {
+            position: relative;
+
+            &::after {
+              content: "";
+              background: url("../images/svg/arrow.svg") no-repeat center;
+              display: block;
+              position: absolute;
+              top: 50%;
+              right: 20px;
+              transform: translateY(-50%);
+              width: 23px;
+              height: 12px;
+              pointer-events: none;
+            }
+          }
+        }
+
+        &_error {
+          border: 0;
+          background-color: transparent;
+
+          .ginput_container {
+            input,
+            textarea,
+            select {
+              border: 1px solid $errorColor;
+              padding: 20px 20px 20px 20px;
+            }
+          }
+
+          .validation_message {
+            font-size: 12px;
+            color: $errorColor;
+          }
+        }
+
+        &.half {
+          width: 100%;
+
+          @include media-breakpoint-up(md) { width: 50%; }
+        }
+
+        &.no-label .gfield_label,
+        &_visibility_hidden { display: none; }
+      }
+
+      fieldset {
+        border: 0;
+
+        .has_country {
+          position: relative;
+
+          &::after {
+            content: "";
+            background: url("../images/svg/arrow.svg") no-repeat center;
+            display: block;
+            position: absolute;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            width: 23px;
+            height: 12px;
+            pointer-events: none;
+          }
+        }
+
+        &.no-label {
+          label { display: none; }
+        }
+      }
+    }
+  }
+
+  .gform_footer {
+    display: inline-block;
+    position: relative;
+    margin: 10px auto 0;
+    padding: 3px 3px 7px;
+    border-radius: 5px;
+    background: $gradient;
+
+    @include media-breakpoint-up(lg) {
+      float: right;
+      margin-top: 20px;
+    }
+
+    .gform_button {
+      position: relative;
+      transition: 0.8s $ease-out;
+      z-index: 2;
+      padding: 8px 40px;
+      border: none;
+      border-radius: 5px 5px 0 0;
+      background-color: $white;
+      cursor: pointer;
+      outline: none;
+      appearance: none;
+
+      @include f15;
+
+      &:hover {
+        transform: translateY(2px);
+        background: $gradient;
+        color: $white;
+      }
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 10px;
+      left: 8px;
+      z-index: 1;
+      width: calc(100% - 16px);
+      height: 40px;
+      background: linear-gradient(270deg, rgba(152, 202, 61, 0.6) 0%, rgba(254, 220, 54, 0.6) 100%);
+      filter: blur(25px);
+    }
+  }
+}

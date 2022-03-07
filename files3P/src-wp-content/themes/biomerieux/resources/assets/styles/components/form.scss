@@ -1,0 +1,59 @@
+.fo {
+  &__c {
+    position: relative;
+    z-index: 1;
+  }
+
+  &__f {
+    position: relative;
+    padding: 50px 12.5%;
+    border: solid 1px $grey;
+    border-radius: 15px;
+    background-color: $white;
+
+    @include media-breakpoint-up(lg) { padding: 100px 0; }
+
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: 100px;
+      left: -40px;
+      z-index: -1;
+      width: 100vw;
+      height: calc(100% - 50px);
+      background: $gradient;
+
+      @include media-breakpoint-up(md) { left: calc((100% - 100vw) / 2); }
+
+      @include media-breakpoint-up(lg) { display: none; }
+    }
+  }
+
+  &__ft {
+    margin-bottom: 50px;
+    font-weight: $bold;
+
+    @include f50;
+  }
+
+  &__fst {
+    position: relative;
+    margin-bottom: 50px;
+
+    @include s50;
+
+    @include media-breakpoint-up(lg) {
+      margin-bottom: 0;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: -15%;
+        height: 100%;
+        width: 1px;
+        background-color: $grey;
+      }
+    }
+  }
+}

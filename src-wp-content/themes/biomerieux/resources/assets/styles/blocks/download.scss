@@ -1,0 +1,30 @@
+.b-d {
+  &:last-child { padding-top: 100px; }
+
+  &__w {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+    padding: 30px 10%;
+    border-radius: 15px;
+    background-color: $white;
+
+    @include media-breakpoint-up(md) { flex-direction: row; }
+  }
+
+  &__t {
+    margin-bottom: 30px;
+    letter-spacing: 0.04em;
+    font-weight: $bold;
+    color: $primary;
+
+    @include f20;
+
+    @include media-breakpoint-up(md) {
+      width: 50%;
+      margin-bottom: 0;
+    }
+  }
+}

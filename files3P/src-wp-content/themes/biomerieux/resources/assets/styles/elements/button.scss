@@ -1,0 +1,62 @@
+.b {
+  display: inline-block;
+  position: relative;
+  padding: 2px 2px 7px;
+  border-radius: 5px;
+  background: $gradient;
+  color: $black;
+
+  > span {
+    display: block;
+    position: relative;
+    transition: 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 2;
+    overflow: hidden;
+    padding: 8px 40px;
+    border: none;
+    border-radius: 5px 5px 0 0;
+    background-color: $white;
+    cursor: pointer;
+    outline: none;
+    appearance: none;
+
+    @include f15;
+
+    &:hover {
+      color: $white;
+
+      &::before { transform: translateY(0); }
+      span { transform: translateY(2px); }
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: -2px;
+      right: -2px;
+      bottom: -7px;
+      left: -2px;
+      transform: translateY(100%);
+      transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: -1;
+      background: $gradient;
+    }
+
+    span {
+      display: block;
+      transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 10px;
+    left: 8px;
+    z-index: 1;
+    width: calc(100% - 16px);
+    height: 40px;
+    background: linear-gradient(270deg, rgba(152, 202, 61, 0.6) 0%, rgba(254, 220, 54, 0.6) 100%);
+    filter: blur(25px);
+  }
+}

@@ -1,0 +1,255 @@
+.b-ps {
+  overflow: hidden;
+  margin-top: 50px;
+
+  @include media-breakpoint-up(xl) { overflow: initial; }
+
+  &:nth-child(2) {
+    &::before {
+      top: 0;
+
+      @include media-breakpoint-up(lg) {
+        top: -100px;
+        height: calc(100% + 20px);
+      }
+    }
+
+    &::after {
+      top: 350px;
+
+      @include media-breakpoint-up(lg) {
+        top: auto;
+        bottom: 80px;
+      }
+    }
+  }
+
+  &__t {
+    text-transform: uppercase;
+    text-align: center;
+    color: transparent;
+    -webkit-text-stroke: 1px $white;
+
+    @include f110;
+  }
+
+  &__w {
+    flex-wrap: nowrap;
+    margin-top: 82px;
+
+    @include media-breakpoint-up(lg) { margin-top: -40px; }
+
+    > div {
+      @include media-breakpoint-down(md) {
+        margin-left: 10%;
+        width: 80%;
+      }
+    }
+  }
+
+  &__i {
+    position: relative;
+    transition: 0.6s $ease-out;
+    padding: 30px;
+    border: solid 1px $white;
+    border-radius: 5px;
+    background-color: $white;
+    box-shadow: 0 30px 30px -20px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+
+    @include media-breakpoint-up(lg) { padding: 50px 30px; }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 94px;
+      height: 94px;
+      border-radius: 50%;
+      background-color: $grey;
+    }
+
+    &.a {
+      transform: translateY(-32px);
+      border-color: $primary;
+    }
+
+    .image {
+      position: relative;
+      z-index: 1;
+      height: 90px;
+
+      @include media-breakpoint-up(lg) { height: 115px; }
+    }
+
+    span {
+      display: block;
+      position: absolute;
+      bottom: 5px;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+    }
+  }
+
+  .z1 {
+    position: relative;
+    z-index: 1;
+  }
+
+  &__d {
+    display: flex;
+    align-items: center;
+    margin-top: -12px;
+  }
+
+  &__svg {
+    display: inline-block;
+    cursor: pointer;
+
+    &:not(:first-child) { margin-left: 10px; }
+
+    &.a,
+    &:hover {
+      rect {
+        transition: stroke-dashoffset 0.3s $ease-out 0.2s;
+        stroke-dashoffset: 0;
+      }
+
+      line {
+        transition: stroke-dashoffset 0.3s $ease-out;
+        stroke-dashoffset: 20px;
+      }
+    }
+
+    rect {
+      transition: stroke-dashoffset 0.3s $ease-out;
+      stroke-dasharray: 55px;
+      stroke-dashoffset: 55px;
+    }
+
+    line {
+      transition: stroke-dashoffset 0.3s $ease-out 0.2s;
+      stroke-dasharray: 20px;
+    }
+  }
+
+  &__sm {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100%;
+    padding-bottom: 200px;
+    text-align: center;
+
+    .anchor {
+      color: $primary;
+      cursor: pointer;
+    }
+
+    svg { margin-top: 10px; }
+  }
+
+  &__it {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow: hidden;
+    margin-top: 50px;
+    border-radius: 5px;
+    border: solid 1px $grey;
+    background-color: $white;
+  }
+
+  &__o {
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 55px;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(45deg);
+      width: 50px;
+      height: 50px;
+      border-radius: 10px;
+      background-color: $white;
+    }
+  }
+
+  &__n {
+    display: flex;
+    position: absolute;
+    left: 6.25%;
+    font-weight: $bold;
+    color: $grey;
+
+    @include f110;
+
+    .items {
+      display: flex;
+      flex-wrap: nowrap;
+      flex-direction: column;
+      height: 140px;
+      overflow: hidden;
+    }
+  }
+
+  &__c {
+    flex: 0 0 100%;
+    z-index: 1;
+    padding: 60px 12.5%;
+  }
+
+  &__ct {
+    margin-bottom: 30px;
+    letter-spacing: 0.04em;
+    font-style: italic;
+    color: $primary;
+
+    @include f30;
+  }
+
+  &__a {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 100%;
+    padding-bottom: 200px;
+  }
+
+  &__ai {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    transform: rotate(-90deg);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: $white;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.08);
+    cursor: pointer;
+
+    svg {
+      transition: 0.6s $ease-out;
+
+      &:last-child {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+      }
+    }
+
+    &.r {
+      svg {
+        &:first-child { opacity: 0; }
+        &:last-child { opacity: 1; }
+      }
+    }
+  }
+}

@@ -1,0 +1,47 @@
+.c {
+  position: relative;
+
+  &:hover {
+    .c__i { opacity: 1; }
+  }
+
+  &__i {
+    display: none;
+
+    @include media-breakpoint-up(lg) {
+      display: flex;
+      position: absolute;
+      top: 0;
+      left: 0;
+      justify-content: center;
+      align-items: center;
+      transition: opacity 0.5s $ease-out;
+      opacity: 0;
+      width: var(--s);
+      height: var(--s);
+      z-index: -1;
+
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+      }
+
+      &::before {
+        transform: var(--b);
+        background: url("../images/green.png");
+        background-size: contain;
+      }
+
+      &::after {
+        transform: var(--a);
+        background: url("../images/yellow.png");
+        background-size: contain;
+      }
+    }
+  }
+}

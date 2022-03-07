@@ -1,0 +1,160 @@
+.video {
+  position: relative;
+  overflow: hidden;
+  margin-top: 0;
+
+  &.is-playing {
+    .video {
+      &__player {
+        opacity: 1;
+        pointer-events: all;
+      }
+
+      &__title {
+        &::after { opacity: 1; }
+      }
+    }
+  }
+
+  &__container { position: relative; }
+
+  &__wrapper {
+    position: relative;
+    width: 100%;
+  }
+
+  &__play {
+    display: flex;
+    position: absolute;
+    bottom: 50%;
+    right: 50%;
+    justify-content: center;
+    align-items: center;
+    transform: translate(50%, 50%);
+    transition: opacity 1s $ease-out;
+    opacity: 1;
+    width: 70px;
+    height: 70px;
+    z-index: 2;
+    border-radius: 50%;
+    background-color: $white;
+
+    @include media-breakpoint-up(md) {
+      bottom: 50px;
+      right: 8.33333%;
+      transform: initial;
+      width: 94px;
+      height: 94px;
+    }
+
+    @include media-breakpoint-up(xl) { opacity: 0; }
+
+    svg {
+      width: 38px;
+      height: 38px;
+    }
+  }
+
+  &__cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    cursor: pointer;
+    transition: opacity 0.75s $ease-out;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: rgba(0, 0, 0, 0.15);
+    }
+
+    &:hover {
+      .video__play { opacity: 1; }
+    }
+
+    .image {
+      width: 100%;
+      height: 100%;
+    }
+
+    &-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    transition: opacity 0.75s $ease-out;
+    z-index: 1;
+    padding: 4.16667%;
+    pointer-events: none;
+
+    @include media-breakpoint-up(md) {
+      position: absolute;
+      justify-content: flex-end;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      padding: 50px 20.83333% 50px 4.16667%;
+      color: $white;
+    }
+
+    @include media-breakpoint-up(xl) { padding: 50px 50% 50px 4.16667%; }
+  }
+
+  &__suptitle {
+    letter-spacing: 0.04em;
+    font-style: italic;
+
+    @include f20;
+  }
+
+  &__title {
+    @include f50;
+
+    &::after {
+      @include media-breakpoint-up(md) {
+        content: attr(data-text);
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        transform: translateY(100%);
+        transition: opacity 0.75s $ease-out;
+        opacity: 0;
+        padding-top: 10px;
+        color: $black;
+
+        @include f20;
+      }
+    }
+  }
+
+  &__player {
+    position: relative;
+    height: 0;
+    z-index: 2;
+    transition: opacity 0.75s $ease-out;
+    opacity: 0;
+    padding-top: 56.25%;
+    overflow: hidden;
+    pointer-events: none;
+
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}

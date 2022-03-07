@@ -1,0 +1,51 @@
+.b-kfp {
+  text-align: center;
+
+  &__t {
+    margin-bottom: 50px;
+    text-align: center;
+  }
+
+  &__s {
+    padding: 10px 0 30px;
+    border: solid 1px $grey;
+    border-radius: 15px;
+    background-color: $white;
+  }
+
+  .col { margin-top: 20px; }
+
+  &__w {
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 1px;
+      height: auto;
+      padding: 85px 0 95px;
+      background-color: $grey;
+    }
+  }
+
+  &__i { height: 60px; }
+  .image { height: 100%; }
+
+  &__f {
+    margin-top: 10px;
+    color: $primary;
+
+    @include f50;
+
+    @include media-breakpoint-up(lg) { margin-top: 40px; }
+  }
+
+  &__tx {
+    margin-top: 10px;
+    padding: 0 25px;
+
+    @include media-breakpoint-up(lg) { margin-top: 20px; }
+  }
+}

@@ -1,0 +1,19 @@
+.l {
+  display: flex;
+
+  @include f18;
+
+  .lang-item {
+    transition: opacity 0.5s $ease-out;
+    padding: 3px 10px;
+    text-transform: capitalize;
+
+    &.current-lang,
+    &:hover { opacity: 0.5; }
+    &.current-lang { pointer-events: none; }
+    &:not(:first-child) { border-left: solid 1px $grey; }
+    &:last-child { padding-right: 0; }
+  }
+
+  a { color: $black; }
+}

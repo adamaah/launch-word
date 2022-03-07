@@ -1,0 +1,73 @@
+.b-it {
+  .o1 {
+    @include media-breakpoint-up(md) { order: -1; }
+  }
+
+  &:not(:nth-of-type(2)) {
+    overflow: hidden;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      top: 20px;
+      left: -50%;
+      width: 500px;
+      height: 500px;
+      z-index: -1;
+
+      @include media-breakpoint-up(md) { left: -10px; }
+    }
+
+    &::before { background: url("../images/yellow.png"); }
+
+    &::after {
+      transform: translate(-50px, 50px);
+      border-radius: 50%;
+      background-color: $white;
+    }
+  }
+
+  &__i {
+    &:not(:nth-of-type(2)) {
+      &::before,
+      &::after {
+        left: auto;
+        right: -50%;
+
+        @include media-breakpoint-up(md) { right: -10px; }
+      }
+
+      &::after { transform: translate(50px, 50px); }
+    }
+  }
+
+  &__w {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 20px;
+
+    @include media-breakpoint-up(lg) { padding-top: 0; }
+  }
+
+  &__t {
+    margin-bottom: 50px;
+    text-align: center;
+  }
+
+  &__st {
+    letter-spacing: 0.04em;
+    font-style: italic;
+
+    @include f30;
+  }
+
+  &__tx { margin-top: 30px; }
+
+  .b {
+    align-self: flex-end;
+    margin-top: 30px;
+  }
+}

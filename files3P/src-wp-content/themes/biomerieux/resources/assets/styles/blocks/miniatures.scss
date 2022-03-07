@@ -1,0 +1,28 @@
+.b-m {
+  text-align: center;
+
+  &__t {
+    @include media-breakpoint-up(lg) { margin-bottom: 60px; }
+  }
+
+  &__w {
+    height: 100%;
+    margin-top: 40px;
+    padding-bottom: 20px;
+    background-color: $white;
+  }
+
+  .image {
+    @include media-breakpoint-up(lg) { height: 11vw; }
+  }
+
+  &__it {
+    margin: 20px 0;
+    padding: 0 10px;
+    text-align: center;
+
+    @include f30;
+  }
+
+  &__tx { padding: 0 20px; }
+}

@@ -1,0 +1,24 @@
+.b-kf {
+  overflow: hidden;
+  padding: 135px 0;
+  background-color: $primary;
+  color: $white;
+
+  &__t {
+    letter-spacing: 0.04em;
+    font-style: italic;
+
+    @include f20;
+  }
+
+  &__w {
+    margin-top: 40px;
+    text-align: center;
+  }
+
+  &__f {
+    font-weight: $bold;
+
+    @include f110;
+  }
+}

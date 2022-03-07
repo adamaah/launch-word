@@ -1,0 +1,155 @@
+.b-p {
+  &__t {
+    text-align: center;
+
+    @include media-breakpoint-up(lg) { margin-bottom: 50px; }
+  }
+
+  .row { overflow: hidden; }
+
+  &__p {
+    position: relative;
+    padding: 0;
+
+    .b-p__w { padding: 65px 25px 35px; }
+
+    &:first-child { z-index: 2; }
+    &:nth-child(2) { z-index: 1; }
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      width: 500px;
+      height: 500px;
+      z-index: -1;
+
+      @include media-breakpoint-up(lg) {
+        top: 50%;
+        right: 0;
+        left: auto;
+      }
+    }
+
+    &::before {
+      transform: translate(-60%, calc(-100% + 50px));
+      background: url("../images/yellow.png");
+
+      @include media-breakpoint-up(lg) { transform: scale(0.7) translate(150px, calc(-50% + 100px)); }
+
+      @include media-breakpoint-up(xl) { transform: scale(0.8) translate(100px, calc(-50% + 100px)); }
+    }
+
+    &::after {
+      transform: translate(-40%, calc(-100% + 50px));
+      background: url("../images/green.png");
+
+      @include media-breakpoint-up(lg) { transform: scale(0.7) translate(150px, calc(-50% - 100px)); }
+
+      @include media-breakpoint-up(xl) { transform: scale(0.8) translate(100px, calc(-50% - 100px)); }
+    }
+  }
+
+  &__w {
+    display: flex;
+    position: relative;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    padding: 65px 20px 35px;
+    background-color: $white;
+    clip-path: polygon(0% 0%, 100% 0, 100% 95%, 50% 100%, 0 95%);
+
+    @include media-breakpoint-up(lg) { clip-path: polygon(0% 0%, 90% 0%, 100% 50%, 90% 100%, 0% 100%); }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 80px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: -1;
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      background-color: $grey;
+    }
+  }
+
+  &__i {
+    width: 100%;
+    flex-grow: 1;
+  }
+
+  img {
+    display: block;
+    width: auto;
+    height: 165px;
+    max-width: 100%;
+    margin: auto;
+    object-fit: contain;
+  }
+
+  &__pt {
+    position: relative;
+    margin-top: 10px;
+    padding-bottom: 20px;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: initial;
+    font-style: initial;
+    color: $primary;
+
+    @include f15;
+
+    @include media-breakpoint-up(lg) { padding-bottom: 10px; }
+
+    strong {
+      font-weight: $bold;
+      letter-spacing: 0.04em;
+
+      @include f20;
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 100px;
+      height: 1px;
+      transform: translateX(-50%);
+      background-color: $grey;
+    }
+  }
+
+  &__st {
+    margin-top: 10px;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 0.04em;
+    font-weight: $bold;
+
+    @include f20;
+  }
+
+  &__tx {
+    margin-top: 30px;
+
+    @include media-breakpoint-up(xxxl) { padding: 0 40px; }
+
+    strong {
+      text-transform: uppercase;
+      color: $primary;
+    }
+  }
+
+  .b {
+    margin-top: 30px;
+
+    @include media-breakpoint-up(lg) { margin-top: 20px; }
+  }
+}

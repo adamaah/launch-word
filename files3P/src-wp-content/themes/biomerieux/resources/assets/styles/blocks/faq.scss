@@ -1,0 +1,8 @@
+.b-faq {
+  &__c {
+    margin: -130px 0 20px;
+    padding-top: 130px;
+
+    @include f50;
+  }
+}

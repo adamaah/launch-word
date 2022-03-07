@@ -1,0 +1,130 @@
+.m {
+  transform: translateY(-100%);
+  transition: 0.8s $ease-out;
+  height: calc(100vh - 90px);
+  overflow: hidden;
+  background-color: $primary;
+
+  @include f18;
+
+  @include media-breakpoint-up(xl) {
+    transform: none;
+    height: initial;
+    overflow: initial;
+    padding: 11px 0;
+  }
+
+  &.a { transform: translateY(0); }
+
+  &__w {
+    display: flex;
+    flex-direction: column;
+
+    @include media-breakpoint-up(xl) {
+      flex-direction: initial;
+      justify-content: space-between;
+    }
+  }
+
+  &__i {
+    display: flex;
+    position: relative;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 30px 0;
+    color: $white;
+    cursor: pointer;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -11px;
+      left: 0;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: 0.5s $ease-out;
+      width: 100%;
+      height: 3px;
+      background-color: $white;
+    }
+
+    &:not(:last-child) {
+      border-bottom: solid 1px $white;
+
+      @include media-breakpoint-up(xl) { border-bottom: initial; }
+    }
+
+    @include media-breakpoint-up(xl) { padding: 0; }
+
+    svg {
+      transition: 0.5s $ease-out;
+      pointer-events: none;
+
+      @include media-breakpoint-up(xl) { display: none; }
+    }
+
+    path { stroke: $white; }
+
+    &:hover,
+    &.v {
+      &::after {
+        @include media-breakpoint-up(xl) { transform: scaleX(1); }
+      }
+    }
+
+    &.a {
+      svg { transform: rotate(180deg); }
+    }
+  }
+
+  div.m__i {
+    padding: 30px 0 15px;
+
+    @include media-breakpoint-up(xl) { padding: 0; }
+  }
+
+  &__s {
+    display: flex;
+    flex: 0 0 100%;
+    flex-direction: column;
+    width: max-content;
+    margin-top: 15px;
+    overflow: hidden;
+    background-color: $white;
+
+    @include media-breakpoint-up(xl) {
+      position: absolute;
+      flex: initial;
+      top: 29px;
+      left: 50px;
+      transform: translateY(-100%);
+      transition: 0.5s $ease-out;
+      z-index: -1;
+      margin-top: initial;
+      padding: 10px 0 30px;
+      overflow: initial;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100%;
+        background-color: $white;
+        box-shadow: -100vw 0 0 0 $white;
+      }
+    }
+
+    a {
+      margin: 20px 40px 0;
+      color: $black;
+
+      @include media-breakpoint-up(xl) { margin: 20px 0 0; }
+    }
+
+    &.a {
+      @include media-breakpoint-up(xl) { transform: translateY(0); }
+    }
+  }
+}

@@ -1,0 +1,78 @@
+@mixin f110 {
+  line-height: 115px;
+  font-size: 90px;
+
+  @include media-breakpoint-up(xl) {
+    line-height: 140px;
+    font-size: 110px;
+  }
+}
+
+@mixin f80 {
+  line-height: 50px;
+  font-size: 40px;
+
+  @include media-breakpoint-up(lg) {
+    line-height: 105px;
+    font-size: 70px;
+  }
+
+  @include media-breakpoint-up(xxl) {
+    line-height: 120px;
+    font-size: 80px;
+  }
+}
+
+@mixin f50 {
+  line-height: 60px;
+  font-size: 40px;
+
+  @include media-breakpoint-up(lg) {
+    font-size: 50px;
+  }
+}
+
+@mixin s50 {
+  line-height: 40px;
+  font-size: 30px;
+
+  @include media-breakpoint-up(lg) {
+    line-height: 60px;
+    font-size: 50px;
+  }
+}
+
+@mixin f30 {
+  line-height: 21px;
+  font-size: 18px;
+
+  @include media-breakpoint-up(lg) {
+    line-height: 45px;
+    font-size: 30px;
+  }
+}
+
+@mixin f20 {
+  line-height: 25px;
+  font-size: 15px;
+
+  @include media-breakpoint-up(xl) {
+    line-height: 30px;
+    font-size: 20px;
+  }
+}
+
+@mixin f18 {
+  line-height: 18px;
+  font-size: 18px;
+}
+
+@mixin f15 {
+  line-height: 20px;
+  font-size: 15px;
+}
+
+@mixin f12 {
+  line-height: 18px;
+  font-size: 12px;
+}

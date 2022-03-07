@@ -1,0 +1,24 @@
+.gh {
+  position: relative;
+  z-index: 1;
+  width: max-content;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 9px;
+    left: 10px;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: 0.5s $ease-out;
+    z-index: -1;
+    width: calc(100% - 15px);
+    height: 10px;
+    background: $gradient;
+  }
+
+  &:hover,
+  &.v {
+    &::after { transform: scaleX(1); }
+  }
+}
